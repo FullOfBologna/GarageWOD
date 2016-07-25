@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
 
 
 public class Login extends ActionBarActivity {
 
     public Button LoginButton;
     public EditText userName, userPass;
+    private boolean LoginSuccessful;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +27,23 @@ public class Login extends ActionBarActivity {
         userName = (EditText)findViewById(R.id.uNameText);
         userPass = (EditText)findViewById(R.id.uPassTest);
 
+        LoginSuccessful = false;
+
         LoginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(userName.getText().toString().equals("admin") && userPass.getText().toString().equals("password")){
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+
+                    LoginSuccessful = true;
+                    Intent intent = new Intent(Login.this,GarageWODHomeActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
-
-    }
-
-    public void openHome(View view){
-        // Start the apps Home Screen.
-
 
     }
 

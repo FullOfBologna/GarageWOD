@@ -47,7 +47,6 @@
         android:background="@color/material_deep_teal_500"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="25dp"
-        android:onClick="openHome"/>
+        android:textSize="25dp" />
 
 </RelativeLayout>
